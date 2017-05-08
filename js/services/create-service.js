@@ -7,8 +7,8 @@ angular.module('fanMovieWeb')
             return $http.get(baseUrl + url);
         };
 
-        this.httpGetAuthenticate = function httpGetAuthenticate(url, headers) {
-            return $http.get(baseUrl + url, headers);
+        this.httpPostAuthenticate = function httpGetAuthenticate(url, headers) {
+            return $http.post(baseUrl + url,  {"Authorization": "Basic " + "YTph"});
         };
 
         this.httpPost = function httpPost(url, data) {

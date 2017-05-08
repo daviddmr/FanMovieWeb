@@ -20,7 +20,7 @@ angular.module("fanMovieWeb")
         function onSuccess(data) {
             $scope.error = false;
             $rootScope.authenticated = true;
-            $state.go("dashboard.routes");
+            console.log("Success")
         }
 
         function onFailure(data, status) {

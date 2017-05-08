@@ -14,7 +14,7 @@ angular.module("fanMovieWeb")
         $scope.register = function register() {
             console.log(user);
             registerService.save(user).then(onSuccess, onFailure);
-        }
+        };
 
         function onSuccess(data) {
             $scope.error = false;
@@ -24,6 +24,5 @@ angular.module("fanMovieWeb")
         function onFailure(data, status) {
             $scope.error = true;
             $scope.message = 'Aconteceu um problema: ' + data;
-            console.log($scope.message);
         }
     });
