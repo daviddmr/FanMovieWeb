@@ -1,5 +1,5 @@
-angular.module("fanMovieWeb", ["ui.router", "tiny-leaflet-directive", "base64"])
-    .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+angular.module("fanMovieWeb", ["ui.router", "tiny-leaflet-directive", "base64", "ngMaterial", "ngMessages", "ngAnimate"])
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider) {
       $stateProvider
           .state("login", {
               url: "/login",
@@ -15,9 +15,12 @@ angular.module("fanMovieWeb", ["ui.router", "tiny-leaflet-directive", "base64"])
               url: "/movie-list",
               templateUrl: "views/movie-list.html",
               controller: "MovieListController"
-          })
-      ;
+          });
 
-      $urlRouterProvider.otherwise("/login");
+        $urlRouterProvider.otherwise("/login");
+
+        $mdThemingProvider.theme('default')
+            .primaryPalette('green')
+            .accentPalette('grey');
 
     });
