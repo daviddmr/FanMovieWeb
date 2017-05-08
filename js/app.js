@@ -10,11 +10,13 @@ angular.module("fanMovieWeb", ["ui.router", "tiny-leaflet-directive", "base64"])
               url: "/register",
               templateUrl: "views/register.html",
               controller: "RegisterController"
-          });
-
-      // $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
-
-      $httpProvider.defaults.headers.common['Authorization'] = 'Basic ' + "YTph";
+          })
+          .state("movie-list", {
+              url: "/movie-list",
+              templateUrl: "views/movie-list.html",
+              controller: "MovieListController"
+          })
+      ;
 
       $urlRouterProvider.otherwise("/login");
 

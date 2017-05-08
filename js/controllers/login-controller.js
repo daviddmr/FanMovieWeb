@@ -20,6 +20,7 @@ angular.module("fanMovieWeb")
         function onSuccess(data) {
             $scope.error = false;
             $rootScope.authenticated = true;
+            $state.go("movie-list");
             console.log("Success")
         }
 
