@@ -4,8 +4,6 @@
         <label class="labelTitlePages">Lista de filmes</label>
     </md-input-container>
 
-    {{movies}}
-
     <div layout="row" class="divSearchList">
         <input class="form-control" type="text" placeholder="Que filme você está buscando ?"/>
         <md-icon class="material-icons md-dark iconMagnifyingGlass">search</md-icon>
@@ -14,7 +12,6 @@
     <table class="table">
         <thead>
         <tr>
-            <th></th>
             <th></th>
             <th><a href="">Id</a></th>
             <th><a href="">Título</a></th>
@@ -26,7 +23,7 @@
         <tbody>
         <tr ng-repeat="movie in movies">
             <td></td>
-            <td style="vertical-align: middle">{{movie.id}}</td>
+            <td style="vertical-align: middle">{{movie._id}}</td>
             <td style="vertical-align: middle">{{movie.title}}</td>
             <td style="vertical-align: middle">{{movie.release_date}}</td>
         </tr>

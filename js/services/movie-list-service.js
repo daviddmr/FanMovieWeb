@@ -3,5 +3,7 @@
  */
 angular.module('fanMovieWeb')
     .service('movieListService', function (createService) {
-
+        this.getMovies = function getMovies() {
+            return createService.httpGet("/movie/list");
+        }
     });
