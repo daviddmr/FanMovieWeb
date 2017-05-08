@@ -1,35 +1,30 @@
 <div class="container">
     <div class="row">
-        <form class="form-horizontal" name="form_register">
-            <div id="legend">
-                <legend class="">{{title}}</legend>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="username">Username</label>
-                <div class="controls">
-                    <input type="text" id="username" name="username" class="input-xlarge"
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">{{title}}</h1>
+            <div class="account-wall">
+                <img class="profile-img" src="img/photo.png" alt="">
+                <form class="form-signin" name="form_signin">
+                    <input type="text" class="form-control" placeholder="Nome Completo" required autofocus
+                           ng-model="user.name">
+
+                    <input type="text" class="form-control" placeholder="Username" required autofocus
                            ng-model="user.username">
-                    <p class="help-block">Por favor, digite seu Username</p>
-                </div>
-            </div>
 
-            <div class="control-group">
-                <label class="control-label" for="password">Password</label>
-                <div class="controls">
-                    <input type="password" id="password" name="password" class="input-xlarge"
+                    <input type="password" class="form-control" placeholder="Password" required
                            ng-model="user.password">
-                    <p class="help-block">Desejavel ter acima de 4 caracteres</p>
-                </div>
-            </div>
 
-            <div class="control-group">
-                <div class="controls">
-                    <button class="btn btn-success" ng-click="register()" type="submit">Register</button>
-                </div>
+                    <button ng-click="register()" class="btn btn-lg btn-primary btn-block"
+                            ng-disabled="form_signin.$invalid"
+                            type="submit">Registrar
+                    </button>
+
+                </form>
             </div>
+            <a href="" ng-click="login()" class="text-center new-account">Fazer login</a>
             <div class="alert alert-danger" ng-show="error">
-                <span class="label-error">Usuário já registrado ou problema de rede.</span>
+                <span class="label-error">Usuário já registrado ou problema de rede</span>
             </div>
-        </form>
+        </div>
     </div>
 </div>

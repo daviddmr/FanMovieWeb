@@ -7,9 +7,10 @@ angular.module("fanMovieWeb")
 
         var user = {};
         user = $scope.user;
-        var role = {};
-        role.name = 'ROLE_USER';
-        user.roles = [role];
+
+        $scope.login = function login() {
+            $state.go("login");
+        };
 
         $scope.register = function register() {
             console.log(user);
