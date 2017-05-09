@@ -64,33 +64,7 @@
     border-radius: 50%;
 }
 
-.need-help {
-    margin-top: 10px;
-}
-
 .new-account {
     display: block;
     margin-top: 10px;
-}
-
-.centered-form {
-    margin-top: 60px;
-}
-
-.centered-form .panel {
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
-}
-
-.dashboard-container {
-    padding-top: 100px;
-}
-
-.new-route {
-    height: 80%;
-    overflow-y: scroll;
-}
-
-.btn-search {
-    padding-top: 20px;
 }
