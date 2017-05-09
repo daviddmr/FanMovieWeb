@@ -29,15 +29,15 @@
         <thead>
         <tr>
             <th></th>
-            <th><a href="">Id</a></th>
-            <th><a href="">Título</a></th>
-            <th><a href="">Ano de lançamento</a></th>
+            <th><a href="" ng-click="orderByFunction('_id')">Id</a></th>
+            <th><a href="" ng-click="orderByFunction('title')">Título</a></th>
+            <th><a href="" ng-click="orderByFunction('release_date')">Ano de lançamento</a></th>
             <th></th>
         </tr>
         </thead>
 
         <tbody>
-        <tr ng-repeat="movie in movies">
+        <tr ng-repeat="movie in movies | orderBy: orderCriteria: orderDirection">
             <td></td>
             <td style="vertical-align: middle">{{movie._id}}</td>
             <td style="vertical-align: middle">{{movie.title}}</td>

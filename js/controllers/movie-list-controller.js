@@ -2,24 +2,34 @@
  * Created by david.melo on 08/05/2017.
  */
 angular.module("fanMovieWeb")
-    .controller('MovieListController', function ($scope, movieListService) {
-        $scope.title = "Lista de filmes";
+  .controller('MovieListController', function ($scope, movieListService) {
+    $scope.title = "Lista de filmes";
 
-        $scope.movies = [];
+    $scope.movies = [];
 
-        var getMovies = function getMovies() {
-            movieListService.getMovies().then(onSuccess, onFailure);
-        };
+    $scope.orderByFunction = function (field) {
+      $scope.orderCriteria = field;
+      $scope.orderDirection = !$scope.orderDirection;
+    };
 
-        function onSuccess(data) {
-            $scope.error = false;
-            $scope.movies = data.data;
-        }
+    $scope.orderByFunctionInit = function (field){
+      $scope.orderCriteria = field;
+      $scope.orderDirection = false;
+    };
 
-        function onFailure(data, status) {
-            $scope.error = true;
-            $scope.message = 'Aconteceu um problema: ' + status;
-        }
+    var getMovies = function getMovies() {
+      movieListService.getMovies().then(onSuccess, onFailure);
+    };
 
-        getMovies();
-    });
+    function onSuccess(data) {
+      $scope.error = false;
+      $scope.movies = data.data;
+    }
+
+    function onFailure(data, status) {
+      $scope.error = true;
+      $scope.message = 'Aconteceu um problema: ' + status;
+    }
+
+    getMovies();
+  });
