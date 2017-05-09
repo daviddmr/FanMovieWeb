@@ -1,41 +1,63 @@
-<div class="divMainListPage" >
+<div ng-cloak>
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+                <md-icon class="material-icons md-dark iconMagnifyingGlass">search</md-icon>
+            </md-button>
 
-    <md-input-container class="md-block">
-        <label class="labelTitlePages">Lista de filmes</label>
-    </md-input-container>
+            <h2 flex md-truncate>Toolbar with Disabled/Enabled Icon Buttons</h2>
 
-    <div layout="row" class="divSearchList">
-        <input class="form-control" type="text" placeholder="Que filme você está buscando ?"/>
-        <md-icon class="material-icons md-dark iconMagnifyingGlass">search</md-icon>
-    </div>
+            <md-button class="md-icon-button" aria-label="Favorite">
+                <md-icon class="material-icons md-dark iconMagnifyingGlass">search</md-icon>
+            </md-button>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th></th>
-            <th><a href="">Id</a></th>
-            <th><a href="">Título</a></th>
-            <th><a href="">Ano de lançamento</a></th>
-            <th></th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr ng-repeat="movie in movies">
-            <td></td>
-            <td style="vertical-align: middle">{{movie._id}}</td>
-            <td style="vertical-align: middle">{{movie.title}}</td>
-            <td style="vertical-align: middle">{{movie.release_date}}</td>
-            <td style="vertical-align: middle">
-                <md-button class="md-fab md-mini" href="#/cadastro?action=Editar&id={{user.id}}">
-                    <md-icon class="material-icons md-dark">create</md-icon>
-                </md-button>
-                <md-button class="md-fab md-mini" ng-click="deleteOneUser(user)">
-                    <md-icon class="material-icons md-dark" ">delete</md-icon>
-                </md-button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+            <md-button class="md-icon-button" aria-label="More">
+                <md-icon class="material-icons md-dark iconMagnifyingGlass">search</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
 
 </div>
+
+
+<!--<div class="divMainListPage" >-->
+
+    <!--<md-input-container class="md-block">-->
+        <!--<label >Lista de filmes</label>-->
+    <!--</md-input-container>-->
+
+    <!--<div layout="row" class="divSearchList">-->
+        <!--<input class="form-control" type="text" placeholder="Que filme você está buscando ?"/>-->
+        <!--<md-icon class="material-icons md-dark iconMagnifyingGlass">search</md-icon>-->
+    <!--</div>-->
+
+    <!--<table class="table">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th></th>-->
+            <!--<th><a href="">Id</a></th>-->
+            <!--<th><a href="">Título</a></th>-->
+            <!--<th><a href="">Ano de lançamento</a></th>-->
+            <!--<th></th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+
+        <!--<tbody>-->
+        <!--<tr ng-repeat="movie in movies">-->
+            <!--<td></td>-->
+            <!--<td style="vertical-align: middle">{{movie._id}}</td>-->
+            <!--<td style="vertical-align: middle">{{movie.title}}</td>-->
+            <!--<td style="vertical-align: middle">{{movie.release_date}}</td>-->
+            <!--<td style="vertical-align: middle">-->
+                <!--<md-button class="md-fab md-mini" href="#/cadastro?action=Editar&id={{user.id}}">-->
+                    <!--<md-icon class="material-icons md-dark">create</md-icon>-->
+                <!--</md-button>-->
+                <!--<md-button class="md-fab md-mini" ng-click="deleteOneUser(user)">-->
+                    <!--<md-icon class="material-icons md-dark" ">delete</md-icon>-->
+                <!--</md-button>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+
+<!--</div>-->

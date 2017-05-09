@@ -1,5 +1,5 @@
-angular.module("fanMovieWeb", ["ui.router", "tiny-leaflet-directive", "ngMaterial", "ngMessages", "ngAnimate"])
-    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider) {
+angular.module("fanMovieWeb", ["ui.router", "tiny-leaflet-directive"])
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
       $stateProvider
           .state("login", {
               url: "/login",
@@ -20,9 +20,5 @@ angular.module("fanMovieWeb", ["ui.router", "tiny-leaflet-directive", "ngMateria
         $urlRouterProvider.otherwise("/login");
 
         $httpProvider.interceptors.push('AuthInterceptor');
-
-        $mdThemingProvider.theme('default')
-            .primaryPalette('green')
-            .accentPalette('grey');
 
     });
