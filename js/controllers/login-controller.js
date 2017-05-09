@@ -1,5 +1,5 @@
 angular.module("fanMovieWeb")
-    .controller('LoginController', function ($scope, $rootScope, $state, loginService) {
+    .controller('LoginController', function ($scope, $rootScope, $state, loginService, $window) {
 
         $scope.title = "Login";
         $scope.error = false;
@@ -10,6 +10,7 @@ angular.module("fanMovieWeb")
         user = $scope.user;
 
         $scope.login = function login() {
+            $window.localStorage.setItem("login", JSON.stringify($scope.user));
             loginService.login(user).then(onSuccess, onFailure);
         };
 

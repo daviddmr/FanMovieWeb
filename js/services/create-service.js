@@ -3,13 +3,13 @@ angular.module('fanMovieWeb')
 
         var baseUrl = 'http://localhost:8080';
 
-        this.httpGet = function httpGet(url) {
-            return $http.get(baseUrl + url);
+        this.httpGet = function httpGet(url, headers) {
+            return $http.get(baseUrl + url, headers);
         };
 
-        this.httpPostAuthenticate = function httpGetAuthenticate(url, data, headers) {
-            return $http.post(baseUrl + url, data,headers);
-        };
+        // this.httpPostAuthenticate = function httpGetAuthenticate(url, data) {
+        //     return $http.post(baseUrl + url, data);
+        // };
 
         this.httpPost = function httpPost(url, data) {
             return $http.post(baseUrl + url, data);

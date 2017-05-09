@@ -2,7 +2,7 @@
  * Created by david.melo on 08/05/2017.
  */
 angular.module("fanMovieWeb")
-    .controller('MovieListController', function ($scope, movieListService) {
+    .controller('MovieListController', function ($scope, movieListService, $window) {
         $scope.title = "Lista de filmes";
 
         $scope.movies = [];
