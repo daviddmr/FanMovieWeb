@@ -37,7 +37,7 @@
         </thead>
 
         <tbody>
-        <tr ng-repeat="movie in movies | orderBy: orderCriteria: orderDirection">
+        <tr ng-repeat="movie in movies | filter: searchCriteria | orderBy: orderCriteria: orderDirection">
             <td></td>
             <td style="vertical-align: middle">{{movie._id}}</td>
             <td style="vertical-align: middle">{{movie.title}}</td>
