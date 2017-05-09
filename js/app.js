@@ -1,4 +1,4 @@
-angular.module("fanMovieWeb", ["ui.router", "tiny-leaflet-directive", "base64", "ngMaterial", "ngMessages", "ngAnimate"])
+angular.module("fanMovieWeb", ["ui.router", "tiny-leaflet-directive", "ngMaterial", "ngMessages", "ngAnimate"])
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider) {
       $stateProvider
           .state("login", {

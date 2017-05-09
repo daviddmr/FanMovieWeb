@@ -7,10 +7,6 @@ angular.module('fanMovieWeb')
             return $http.get(baseUrl + url, headers);
         };
 
-        // this.httpPostAuthenticate = function httpGetAuthenticate(url, data) {
-        //     return $http.post(baseUrl + url, data);
-        // };
-
         this.httpPost = function httpPost(url, data) {
             return $http.post(baseUrl + url, data);
         };
