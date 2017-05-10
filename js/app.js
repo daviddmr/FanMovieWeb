@@ -15,6 +15,11 @@ angular.module("fanMovieWeb", ['ngMaterial', 'ngAnimate', 'ui.router', 'tiny-lea
                 url: "/movie-list",
                 templateUrl: "views/movie-list.html",
                 controller: "MovieListController"
+            })
+            .state("register-movie", {
+                url: "/register-movie",
+                templateUrl: "views/register-movie.html",
+                controller: "RegisterMovieController"
             });
 
         $urlRouterProvider.otherwise("/login");

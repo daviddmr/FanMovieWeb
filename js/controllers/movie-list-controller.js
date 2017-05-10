@@ -54,6 +54,10 @@ angular.module("fanMovieWeb")
             );
         };
 
+        $scope.addMovie = function () {
+            $state.go("register-movie");
+        };
+
         $scope.logout = function () {
             movieListService.logout();
             $state.go("login");
