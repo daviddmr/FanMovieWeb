@@ -11,4 +11,8 @@ angular.module('fanMovieWeb')
             var params = {"id": movie._id};
             return createService.httpGet("/movie/remove", params)
         };
+
+        this.logout = function logout() {
+          return createService.httpGet("/user/logout");
+        };
     });

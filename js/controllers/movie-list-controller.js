@@ -2,7 +2,7 @@
  * Created by david.melo on 08/05/2017.
  */
 angular.module("fanMovieWeb")
-    .controller('MovieListController', function ($scope, $mdDialog, movieListService) {
+    .controller('MovieListController', function ($scope, $mdDialog, $state, movieListService) {
         $scope.title = "Lista de filmes";
 
         $scope.movies = [];
@@ -52,6 +52,11 @@ angular.module("fanMovieWeb")
                     .ok('Ok!')
                 // .targetEvent(ev)
             );
+        };
+
+        $scope.logout = function () {
+            movieListService.logout();
+            $state.go("login");
         };
 
         getMovies();
