@@ -49,17 +49,18 @@
             <md-input-container class="md-block" flex="25" flex-gt-sm>
                 <label>Gênero(s)</label>
                 <md-select ng-model="movie.genre">
-                    <md-option ng-repeat="genre in genres" value="{{genre.abbrev}}">
-                        {{genre.abbrev}}
+                    <md-option ng-repeat="genre in genres" ng-model="genre.genreName" value="{{value}}"">
+                        {{genre.genreName}}
                     </md-option>
                 </md-select>
             </md-input-container>
 
             <md-button class="md-fab md-mini">
-                <md-icon class="material-icons" ng-click="addGenre(genre)">add</md-icon>
+                <md-icon class="material-icons" ng-click="addGenre(teste)">add</md-icon>
             </md-button>
 
-            <label>Gêneros selecionados: {{$scope.genres_selected}}</label>
+            <div>Gêneros selecionados: {{}}</div>
+            <!--<div>Gêneros selecionados: {{$scope.genres_selected}}</div>-->
 
         </div>
 
