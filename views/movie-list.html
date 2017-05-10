@@ -41,7 +41,7 @@
             <td></td>
             <td style="vertical-align: middle">{{movie._id}}</td>
             <td style="vertical-align: middle">{{movie.title}}</td>
-            <td style="vertical-align: middle">{{movie.release_date}}</td>
+            <td style="vertical-align: middle">{{movie.release_date | date : "yyyy"}}</td>
             <td style="vertical-align: middle">
                 <md-button class="md-fab md-mini">
                     <md-icon class="material-icons md-dark">create</md-icon>
