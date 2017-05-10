@@ -5,124 +5,129 @@
     margin-right: auto;
 }
 
-.divMainListPage{
+.divMainListPage {
     width: 800px;
     margin-top: 30px;
     margin-left: 85px;
 }
 
-.labelTitlePages{
+.labelTitlePages {
     font-size: 24px;
     color: darkslategrey
 }
 
-.divTitleListPage{
+.divTitleListPage {
     font-size: 24px;
     color: darkslategrey;
 }
 
-.divSearchList{
+.divSearchList {
     margin-top: 35px;
 }
 
-.inputSearchTable{
+.inputSearchTable {
     margin-top: 5px;
     margin-left: 5px;
     margin-right: 10px;
     vertical-align: middle;
 }
 
-.iconMagnifyingGlass{
+.iconMagnifyingGlass {
     margin-right: 20px;
     vertical-align: middle;
 }
 
-.inputContainerLastName{
+.inputContainerLastName {
     margin-top: 37px;
 }
 
-.divDeleteUsers{
+.divDeleteUsers {
     margin-top: 10px;
 }
 
-.table tr{
+.table tr {
     text-align: center;
 }
 
 .checkBoxForDelete {
-    margin-top: 15px; margin-left: 10px;
+    margin-top: 15px;
+    margin-left: 10px;
 }
 
-.tableTdRowItemsListPage{
+.tableTdRowItemsListPage {
     vertical-align: middle;
 }
 
-.table th{
+.table th {
     text-align: center;
 }
 
-.tr{
+.tr {
     text-align: center;
 }
+
 .th {
     text-align: center;
     color: #00c853;
 }
+
 .td {
     text-align: center;
 }
+
 .selected {
     background-color: #CFD8DC;
 }
+
 .bold {
     font-weight: bold;
 }
 
-.divMainFormPage{
+.divMainFormPage {
     width: 800px;
     margin-top: 15px;
     margin-left: 85px;
 }
 
-.inputFirstNameForm{
+.inputFirstNameForm {
     margin-top: 45px;
 }
 
-.inputBirthdayForm{
+.inputBirthdayForm {
     margin-top: 12px;
 }
 
-.inputAddressComplementForm{
+.inputAddressComplementForm {
     margin-left: 15px;
 }
 
-.inputDistrictForm{
+.inputDistrictForm {
     margin-top: 20px;
 }
 
-.inputTelephoneForm{
+.inputTelephoneForm {
     margin-left: 15px;
 }
 
-.inputPlaceHolderForm{
+.inputPlaceHolderForm {
     margin-bottom: 0;
     color: #BDBDBD;
 }
 
-.inputPlaceHolderFormBirthday{
+.inputPlaceHolderFormBirthday {
     margin-bottom: 0;
     margin-left: 15px;
     color: #BDBDBD;
 }
 
-.inputContainersForm{
+.inputContainersForm {
     margin-top: 0;
 }
 
-.divInputCpf{
+.divInputCpf {
     margin-left: 15px;
 }
 
-.divFootPageFormPage{
+.divFootPageFormPage {
     margin-bottom: 30px;
 }

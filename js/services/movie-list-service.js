@@ -5,5 +5,10 @@ angular.module('fanMovieWeb')
     .service('movieListService', function (createService) {
         this.getMovies = function getMovies() {
             return createService.httpGet("/movie/list");
-        }
+        };
+
+        this.removeMovie = function removeMovie(movie) {
+            var params = {"id": movie._id};
+            return createService.httpGet("/movie/remove", params)
+        };
     });

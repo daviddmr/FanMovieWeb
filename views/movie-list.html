@@ -43,12 +43,11 @@
             <td style="vertical-align: middle">{{movie.title}}</td>
             <td style="vertical-align: middle">{{movie.release_date}}</td>
             <td style="vertical-align: middle">
-                <md-button class="md-fab md-mini" href="#/cadastro?action=Editar&id={{user.id}}">
+                <md-button class="md-fab md-mini">
                     <md-icon class="material-icons md-dark">create</md-icon>
                 </md-button>
-                <md-button class="md-fab md-mini" ng-click="deleteOneUser(user)">
-                    <md-icon class="material-icons md-dark"
-                    ">delete</md-icon>
+                <md-button class="md-fab md-mini" ng-click="deleteMovie(movie)">
+                    <md-icon class="material-icons md-dark">delete</md-icon>
                 </md-button>
             </td>
         </tr>
