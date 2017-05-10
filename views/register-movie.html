@@ -1,4 +1,4 @@
-<div  layout="column" ng-cloak class="divMainFormPage">
+<div layout="column" ng-cloak class="divMainFormPage">
 
     <md-toolbar class="md-hue-2">
         <div class="md-toolbar-tools" style="padding-left: 20px; padding-right: 20px">
@@ -18,5 +18,65 @@
     <md-input-container class="md-block">
         <label class="labelTitlePages">{{title}}</label>
     </md-input-container>
+
+    <form name="userForm" layout="column">
+
+        <md-input-container class="md-block inputFirstNameForm">
+            <label>Título do filme</label>
+            <input ng-model="movie.title" required name="titleInput">
+            <div ng-messages="userForm.titleInput.$error">
+                <div ng-message="required">É obrigatório informar um título.</div>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block inputFirstNameForm">
+            <label>Título original do filme</label>
+            <input ng-model="movie.original_title">
+        </md-input-container>
+
+        <md-input-container class="md-block inputFirstNameForm">
+            <label>URL da imagem do poster</label>
+            <input ng-model="movie.poster_path">
+        </md-input-container>
+
+        <md-input-container class="md-block inputFirstNameForm">
+            <label>URL de uma cena do filme</label>
+            <input ng-model="movie.backdrop_path">
+        </md-input-container>
+
+        <div layout="row">
+
+            <md-input-container class="md-block" flex="25" flex-gt-sm>
+                <label>Gênero(s)</label>
+                <md-select ng-model="movie.genre">
+                    <md-option ng-repeat="genre in genres" value="{{genre.abbrev}}">
+                        {{genre.abbrev}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-button class="md-fab md-mini">
+                <md-icon class="material-icons" ng-click="addGenre(genre)">add</md-icon>
+            </md-button>
+
+            <label>Gêneros selecionados: {{$scope.genres_selected}}</label>
+
+        </div>
+
+
+        <label ng-model="$scope.genres_selected"></label>
+
+        <md-input-container class="md-block">
+            <label>Sinopse</label>
+            <textarea ng-model="movie.overview" rows="3" md-select-on-focus></textarea>
+        </md-input-container>
+
+
+        <!--Ano de lançamento-->
+
+        <!--Voto-->
+
+    </form>
+
 
 </div>
