@@ -5,29 +5,48 @@ angular.module("fanMovieWeb")
     .controller('RegisterMovieController', function ($scope, $state, registerMovieService, movieListService) {
 
         $scope.title = "Cadastrar filme";
-        $scope.genres_selected = [];
-        $scope.currentGenre = {};
 
-        $scope.genres = [
-            {"id": 28, genreName: 'Ação'},
-            {"id": 12, genreName: 'Aventura'},
-            {"id": 16, genreName: 'Animação'},
-            {"id": 35, genreName: 'Comédia'},
-            {"id": 80, genreName: 'Crime'},
-            {"id": 99, genreName: 'Documentário'},
-            {"id": 18, genreName: 'Drama'},
-            {"id": 10751, genreName: 'Família'},
-            {"id": 14, genreName: 'Fantasia'},
-            {"id": 36, genreName: 'História'},
-            {"id": 27, genreName: 'Terror'},
-            {"id": 10402, genreName: 'Música'},
-            {"id": 9648, genreName: 'Mistério'},
-            {"id": 10749, genreName: 'Romance'},
-            {"id": 878, genreName: 'Ficção científica'},
-            {"id": 10770, genreName: 'Cinema TV'},
-            {"id": 53, genreName: 'Thriller'},
-            {"id": 10752, genreName: 'Guerra'},
-            {"id": 37, genreName: 'Faroeste'}];
+        $scope.selectedGenres = [];
+
+        $scope.transformChip = function transformChip(chip) {
+            if (angular.isObject(chip)) {
+                return chip;
+            }
+        };
+
+        $scope.querySearch = function querySearch (query) {
+            var results = query ? genres.filter(createFilterFor(query)) : [];
+            return results;
+        };
+
+        function createFilterFor(query) {
+            var lowercaseQuery = angular.lowercase(query);
+
+            return function filterFn(genre) {
+                return (genre.genreName.indexOf(lowercaseQuery) >= 0);
+            };
+        }
+
+        var genres = [
+            {"id": 28,      genreName: 'ação'},
+            {"id": 12,      genreName: 'aventura'},
+            {"id": 16,      genreName: 'animação'},
+            {"id": 35,      genreName: 'comédia'},
+            {"id": 80,      genreName: 'crime'},
+            {"id": 99,      genreName: 'documentário'},
+            {"id": 18,      genreName: 'drama'},
+            {"id": 10751,   genreName: 'família'},
+            {"id": 14,      genreName: 'fantasia'},
+            {"id": 36,      genreName: 'história'},
+            {"id": 27,      genreName: 'terror'},
+            {"id": 10402,   genreName: 'música'},
+            {"id": 9648,    genreName: 'mistério'},
+            {"id": 10749,   genreName: 'romance'},
+            {"id": 878,     genreName: 'ficção científica'},
+            {"id": 10770,   genreName: 'cinema TV'},
+            {"id": 53,      genreName: 'thriller'},
+            {"id": 10752,   genreName: 'guerra'},
+            {"id": 37,      genreName: 'faroeste'}];
 
         $scope.goToListOfMovie = function () {
             $state.go("movie-list");

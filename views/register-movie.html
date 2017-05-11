@@ -44,26 +44,23 @@
             <input ng-model="movie.backdrop_path">
         </md-input-container>
 
-        <div layout="row">
-
-            <md-input-container class="md-block" flex="25" flex-gt-sm>
-                <label>Gênero(s)</label>
-                <md-select ng-model="movie.genre">
-                    <md-option ng-repeat="genre in genres" ng-model="genre.genreName" value="{{value}}"">
-                        {{genre.genreName}}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-
-            <md-button class="md-fab md-mini">
-                <md-icon class="material-icons" ng-click="addGenre(teste)">add</md-icon>
-            </md-button>
-
-            <div>Gêneros selecionados: {{}}</div>
-            <!--<div>Gêneros selecionados: {{$scope.genres_selected}}</div>-->
-
-        </div>
-
+        <md-chips ng-model="selectedGenres" md-autocomplete-snap
+                  md-transform-chip="transformChip($chip)"
+                  md-require-match="true">
+            <md-autocomplete
+                    md-selected-item="selectedItem"
+                    md-search-text="searchText"
+                    md-items="item in querySearch(searchText)"
+                    md-item-text="item.name"
+                    placeholder="Procure por um gênero">
+                <span md-highlight-text="searchText">{{item.genreName}}</span>
+            </md-autocomplete>
+            <md-chip-template>
+                <span>
+                  <strong>{{$chip.genreName}}</strong>
+                </span>
+            </md-chip-template>
+        </md-chips>
 
         <label ng-model="$scope.genres_selected"></label>
 
@@ -71,7 +68,6 @@
             <label>Sinopse</label>
             <textarea ng-model="movie.overview" rows="3" md-select-on-focus></textarea>
         </md-input-container>
-
 
         <!--Ano de lançamento-->
 
