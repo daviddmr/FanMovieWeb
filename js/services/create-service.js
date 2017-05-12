@@ -11,8 +11,14 @@ angular.module('fanMovieWeb')
             });
         };
 
-        this.httpPost = function httpPost(url, data) {
-            return $http.post(baseUrl + url, data);
+        this.httpPost = function httpPost(url, data, params) {
+            return $http({
+                url: baseUrl + url,
+                method: "POST",
+                data: data,
+                params: params
+            });
+            // return $http.post(baseUrl + url, data);
         };
 
         this.httpDelete = function httpDelete(url) {
