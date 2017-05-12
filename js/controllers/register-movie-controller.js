@@ -2,11 +2,11 @@
  * Created by david on 09/05/2017.
  */
 angular.module("fanMovieWeb")
-    .controller('RegisterMovieController', function ($scope, $state, registerMovieService, movieListService) {
+    .controller('RegisterMovieController', function ($scope, $state, $stateParams, registerMovieService, movieListService) {
 
         $scope.title = "Cadastrar filme";
 
-        $scope.selectedGenres = [];
+        $scope.genre_ids = [];
 
         $scope.transformChip = function transformChip(chip) {
             if (angular.isObject(chip)) {
@@ -14,7 +14,7 @@ angular.module("fanMovieWeb")
             }
         };
 
-        $scope.querySearch = function querySearch (query) {
+        $scope.querySearch = function querySearch(query) {
             var results = query ? genres.filter(createFilterFor(query)) : [];
             return results;
         };
@@ -48,6 +48,11 @@ angular.module("fanMovieWeb")
             {"id": 10752,   genreName: 'guerra'},
             {"id": 37,      genreName: 'faroeste'}];
 
+        $scope.years = [];
+        for (var i = 2017; i > 1945; i--) {
+            $scope.years.push(i);
+        }
+
         $scope.goToListOfMovie = function () {
             $state.go("movie-list");
         };
@@ -59,6 +64,22 @@ angular.module("fanMovieWeb")
 
         $scope.addGenre = function (genre) {
             $scope.genres_selected.push(genre)
+        };
+
+        $scope.addMovie = function addMovie(movie) {
+            movie.genre_ids = $scope.genre_ids.map(function(value) {
+                return value.id;
+            });
+
+            registerMovieService.addMovie(movie).then(onSuccess, onFailure);
+        };
+
+        function onSuccess(data) {
+            console.log();
+        }
+
+        function onFailure(data, status) {
+            console.log();
         }
 
     });
