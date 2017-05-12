@@ -19,12 +19,12 @@
         <label class="labelTitlePages">{{title}}</label>
     </md-input-container>
 
-    <form name="userForm" layout="column">
+    <form name="movieForm" layout="column">
 
         <md-input-container class="md-block inputFirstNameForm">
             <label>Título do filme</label>
             <input ng-model="movie.title" required name="titleInput">
-            <div ng-messages="userForm.titleInput.$error">
+            <div ng-messages="movieForm.titleInput.$error">
                 <div ng-message="required">É obrigatório informar um título.</div>
             </div>
         </md-input-container>
@@ -44,7 +44,7 @@
             <input ng-model="movie.backdrop_path">
         </md-input-container>
 
-        <md-chips ng-model="selectedGenres" md-autocomplete-snap
+        <md-chips ng-model="genre_ids" md-autocomplete-snap
                   md-transform-chip="transformChip($chip)"
                   md-require-match="true">
             <md-autocomplete
@@ -62,18 +62,35 @@
             </md-chip-template>
         </md-chips>
 
-        <label ng-model="$scope.genres_selected"></label>
-
         <md-input-container class="md-block">
             <label>Sinopse</label>
             <textarea ng-model="movie.overview" rows="3" md-select-on-focus></textarea>
         </md-input-container>
 
-        <!--Ano de lançamento-->
+        <div layout="row">
 
-        <!--Voto-->
+            <md-input-container class="md-block" flex-gt-sm flex="30">
+                <label>Ano de lançamento</label>
+                <md-select ng-model="movie.release_date">
+                    <md-option ng-repeat="year in years" value="{{year}}">
+                        {{year}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-slider-container flex="60">
+                <span>Nota: {{movie.vote_average}}</span>
+                <md-slider flex min="0" max="10" step="0.1" ng-model="movie.vote_average" aria-label="red" id="red-slider">
+                </md-slider>
+            </md-slider-container>
+
+        </div>
 
     </form>
 
+    <div layout="row" layout-align="end center" class="divFootPageFormPage">
+        <!--<md-button ng-disabled="false" ng-click="clearForm(movieForm) ">{{titleOfClearButton}}</md-button>-->
+        <md-button class="md-raised md-primary" ng-click="addMovie(movie)">Salvar</md-button>
+    </div>
 
 </div>
