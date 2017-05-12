@@ -55,6 +55,7 @@ angular.module("fanMovieWeb")
         $stateParams.movie.id ? fillMovieFields($stateParams.movie) : $scope.movie = {};
 
         function fillMovieFields(movie) {
+            movie.release_date = movie.release_date.substring(0,4);
             $scope.movie = movie;
             movie.genre_ids.forEach(function (id) {
                 var genre = getGenreById(id);
@@ -63,7 +64,7 @@ angular.module("fanMovieWeb")
         }
 
         $scope.years = [];
-        for (var i = 2017; i > 1945; i--) {
+        for (var i = 2017; i >= 1900; i--) {
             $scope.years.push(i);
         }
 
@@ -74,10 +75,6 @@ angular.module("fanMovieWeb")
         $scope.logout = function () {
             movieListService.logout();
             $state.go("login");
-        };
-
-        $scope.addGenre = function (genre) {
-            $scope.genres_selected.push(genre)
         };
 
         $scope.addMovie = function addMovie(movie) {
