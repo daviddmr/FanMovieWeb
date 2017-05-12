@@ -2,7 +2,7 @@
  * Created by david on 09/05/2017.
  */
 angular.module("fanMovieWeb")
-    .controller('RegisterMovieController', function ($scope, $state, $stateParams, registerMovieService, movieListService) {
+    .controller('RegisterMovieController', function ($scope, $state, $stateParams, $filter, registerMovieService, movieListService) {
 
         $scope.title = "Cadastrar filme";
 
@@ -28,25 +28,39 @@ angular.module("fanMovieWeb")
         }
 
         var genres = [
-            {"id": 28,      genreName: 'ação'},
-            {"id": 12,      genreName: 'aventura'},
-            {"id": 16,      genreName: 'animação'},
-            {"id": 35,      genreName: 'comédia'},
-            {"id": 80,      genreName: 'crime'},
-            {"id": 99,      genreName: 'documentário'},
-            {"id": 18,      genreName: 'drama'},
-            {"id": 10751,   genreName: 'família'},
-            {"id": 14,      genreName: 'fantasia'},
-            {"id": 36,      genreName: 'história'},
-            {"id": 27,      genreName: 'terror'},
-            {"id": 10402,   genreName: 'música'},
-            {"id": 9648,    genreName: 'mistério'},
-            {"id": 10749,   genreName: 'romance'},
-            {"id": 878,     genreName: 'ficção científica'},
-            {"id": 10770,   genreName: 'cinema TV'},
-            {"id": 53,      genreName: 'thriller'},
-            {"id": 10752,   genreName: 'guerra'},
-            {"id": 37,      genreName: 'faroeste'}];
+            {"id": 28, genreName: 'ação'},
+            {"id": 12, genreName: 'aventura'},
+            {"id": 16, genreName: 'animação'},
+            {"id": 35, genreName: 'comédia'},
+            {"id": 80, genreName: 'crime'},
+            {"id": 99, genreName: 'documentário'},
+            {"id": 18, genreName: 'drama'},
+            {"id": 10751, genreName: 'família'},
+            {"id": 14, genreName: 'fantasia'},
+            {"id": 36, genreName: 'história'},
+            {"id": 27, genreName: 'terror'},
+            {"id": 10402, genreName: 'música'},
+            {"id": 9648, genreName: 'mistério'},
+            {"id": 10749, genreName: 'romance'},
+            {"id": 878, genreName: 'ficção científica'},
+            {"id": 10770, genreName: 'cinema TV'},
+            {"id": 53, genreName: 'thriller'},
+            {"id": 10752, genreName: 'guerra'},
+            {"id": 37, genreName: 'faroeste'}];
+
+        function getGenreById(id) {
+            return $filter('filter')(genres, {id: id}, true);
+        }
+
+        $stateParams.movie.id ? fillMovieFields($stateParams.movie) : $scope.movie = {};
+
+        function fillMovieFields(movie) {
+            $scope.movie = movie;
+            movie.genre_ids.forEach(function (id) {
+                var genre = getGenreById(id);
+                $scope.genre_ids.push(genre[0]);
+            });
+        }
 
         $scope.years = [];
         for (var i = 2017; i > 1945; i--) {
@@ -67,7 +81,7 @@ angular.module("fanMovieWeb")
         };
 
         $scope.addMovie = function addMovie(movie) {
-            movie.genre_ids = $scope.genre_ids.map(function(value) {
+            movie.genre_ids = $scope.genre_ids.map(function (value) {
                 return value.id;
             });
 
