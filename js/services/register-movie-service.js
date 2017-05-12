@@ -4,9 +4,8 @@
 angular.module('fanMovieWeb')
     .service('registerMovieService', function (createService) {
 
-        this.addMovie = function addMovies() {
-            // return createService.httpPost("/movie/add");
-            return success;
+        this.addMovie = function addMovies(movie) {
+            return createService.httpPost("/movie/add", movie);
         };
 
         this.updateMovie = function updateMovies() {
