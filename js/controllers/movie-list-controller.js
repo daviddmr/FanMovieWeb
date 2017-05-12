@@ -58,6 +58,10 @@ angular.module("fanMovieWeb")
             $state.go("register-movie");
         };
 
+        $scope.editMovie = function (movie) {
+            $state.go("register-movie", { movie: movie });
+        };
+
         $scope.logout = function () {
             movieListService.logout();
             $state.go("login");

@@ -44,7 +44,7 @@
             <td style="vertical-align: middle">{{movie.release_date | date : "yyyy"}}</td>
             <td style="vertical-align: middle">
                 <md-button class="md-fab md-mini">
-                    <md-icon class="material-icons md-dark">create</md-icon>
+                    <md-icon class="material-icons md-dark" ng-click="editMovie(movie)">create</md-icon>
                 </md-button>
                 <md-button class="md-fab md-mini" ng-click="deleteMovie(movie)">
                     <md-icon class="material-icons md-dark">delete</md-icon>

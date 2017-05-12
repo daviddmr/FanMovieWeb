@@ -19,6 +19,9 @@ angular.module("fanMovieWeb", ['ngMaterial', 'ngAnimate', 'ui.router', 'tiny-lea
             .state("register-movie", {
                 url: "/register-movie",
                 templateUrl: "views/register-movie.html",
+                params: {
+                    movie: {}
+                },
                 controller: "RegisterMovieController"
             });
 
