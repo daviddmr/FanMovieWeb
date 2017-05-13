@@ -2,9 +2,7 @@
  * Created by david on 09/05/2017.
  */
 angular.module("fanMovieWeb")
-    .controller('RegisterMovieController', function ($scope, $state, $stateParams, $filter, registerMovieService, movieListService) {
-
-        $scope.title = "Cadastrar filme";
+    .controller('RegisterMovieController', function ($scope, $state, $stateParams, $filter, $mdDialog, registerMovieService, movieListService, movie) {
 
         $scope.genre_ids = [];
 
@@ -52,9 +50,21 @@ angular.module("fanMovieWeb")
             return $filter('filter')(genres, {id: id}, true);
         }
 
-        $stateParams.movie.id ? fillMovieFields($stateParams.movie) : $scope.movie = {};
+        // $stateParams.movie.id ? fillMovieFields($stateParams.movie) : $scope.movie = {};
+
+        movie ? (movie.id ? fillMovieFields(movie) : clearMovieFields()) : clearMovieFields();
+
+        function clearMovieFields() {
+            $scope.title = "Cadastrar novo filme";
+            $scope.movie = {};
+            $scope.titleOfClearResetButton = "Limpar";
+            $scope.titleOfSaveEditButton = "Salvar";
+        }
 
         function fillMovieFields(movie) {
+            $scope.title = "Editar filme";
+            $scope.titleOfClearResetButton = "Reset";
+            $scope.titleOfSaveEditButton = "Editar";
             movie.release_date = movie.release_date.substring(0,4);
             $scope.movie = movie;
             movie.genre_ids.forEach(function (id) {
@@ -92,5 +102,21 @@ angular.module("fanMovieWeb")
         function onFailure(data, status) {
             console.log();
         }
+
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.clearForm = function(form) {
+            if(form) {
+                $scope.movie = {};
+                $scope.genre_ids = [];
+                form.$setUntouched();
+            }
+        };
 
     });

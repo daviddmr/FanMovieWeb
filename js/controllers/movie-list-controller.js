@@ -59,7 +59,7 @@ angular.module("fanMovieWeb")
         };
 
         $scope.editMovie = function (movie) {
-            $state.go("register-movie", { movie: movie });
+            $state.go("register-movie", {movie: movie});
         };
 
         $scope.logout = function () {
@@ -68,4 +68,16 @@ angular.module("fanMovieWeb")
         };
 
         getMovies();
+
+        $scope.openCreateEditMovieDialog = function (movie) {
+            $mdDialog.show({
+                controller: "RegisterMovieController",
+                templateUrl: 'views/register-movie.html',
+                locals: {
+                    movie: movie
+                },
+                clickOutsideToClose: true
+            })
+        };
+
     });

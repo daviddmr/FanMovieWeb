@@ -5,12 +5,12 @@
 
             <h2 flex md-truncate>Fan Movie</h2>
 
-            <md-button class="md-icon-button" aria-label="AddMovie">
-                <md-icon class="material-icons" ng-click="addMovie()">add</md-icon>
+            <md-button class="md-icon-button" aria-label="AddMovie" ng-click="openCreateEditMovieDialog()">
+                <md-icon class="material-icons">add</md-icon>
             </md-button>
 
-            <md-button class="md-icon-button" aria-label="Logout">
-                <i class="material-icons" ng-click="logout()">exit_to_app</i>
+            <md-button class="md-icon-button" aria-label="Logout" ng-click="logout()">
+                <i class="material-icons" >exit_to_app</i>
             </md-button>
         </div>
     </md-toolbar>
@@ -46,8 +46,8 @@
                     <td style="vertical-align: middle">{{movie.title}}</td>
                     <td style="vertical-align: middle">{{movie.release_date | limitTo:4}}</td>
                     <td style="vertical-align: middle">
-                        <md-button class="md-fab md-mini">
-                            <md-icon class="material-icons md-dark" ng-click="editMovie(movie)">create</md-icon>
+                        <md-button class="md-fab md-mini" ng-click="openCreateEditMovieDialog(movie)">
+                            <md-icon class="material-icons md-dark"">create</md-icon>
                         </md-button>
                         <md-button class="md-fab md-mini" ng-click="deleteMovie(movie)">
                             <md-icon class="material-icons md-dark">delete</md-icon>
