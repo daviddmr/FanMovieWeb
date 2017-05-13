@@ -53,7 +53,7 @@ angular.module("fanMovieWeb")
 
         $scope.showRemoveMovieConfirm = function(movie) {
             var confirm = $mdDialog.confirm()
-                .title('Você realmente deseja remover este filme?')
+                .title('Você realmente deseja remover este filme ?')
                 .clickOutsideToClose(true)
                 .ok('Sim')
                 .cancel('Não');
@@ -61,14 +61,6 @@ angular.module("fanMovieWeb")
             $mdDialog.show(confirm).then(function() {
                 deleteMovie(movie)
             });
-        };
-
-        $scope.addMovie = function () {
-            $state.go("register-movie");
-        };
-
-        $scope.editMovie = function (movie) {
-            $state.go("register-movie", {movie: movie});
         };
 
         $scope.logout = function () {

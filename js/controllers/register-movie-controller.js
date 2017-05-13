@@ -66,7 +66,7 @@ angular.module("fanMovieWeb")
             $scope.titleOfClearResetButton = "Reset";
             $scope.titleOfSaveEditButton = "Editar";
             movie.release_date = movie.release_date.substring(0,4);
-            $scope.movie = movie;
+            $scope.movie = angular.copy(movie);
             movie.genre_ids.forEach(function (id) {
                 var genre = getGenreById(id);
                 $scope.genre_ids.push(genre[0]);
@@ -113,7 +113,14 @@ angular.module("fanMovieWeb")
         };
 
         $scope.clearForm = function(form) {
-            if(form) {
+            if (movie) {
+                $scope.movie = angular.copy(movie);
+                $scope.genre_ids = [];
+                movie.genre_ids.forEach(function (id) {
+                    var genre = getGenreById(id);
+                    $scope.genre_ids.push(genre[0]);
+                });
+            } else if(form) {
                 $scope.movie = {};
                 $scope.genre_ids = [];
                 form.$setUntouched();
