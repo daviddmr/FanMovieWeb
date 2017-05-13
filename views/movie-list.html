@@ -1,4 +1,4 @@
-<div class="divMainListPage" ng-init="orderByFunctionInit('_id')">
+<div layout="column" ng-init="orderByFunctionInit('_id')">
 
     <md-toolbar class="md-hue-2">
         <div class="md-toolbar-tools" style="padding-left: 20px; padding-right: 20px">
@@ -15,43 +15,51 @@
         </div>
     </md-toolbar>
 
-    <md-input-container class="md-block">
-        <label class="labelTitlePages">Lista de filmes</label>
-    </md-input-container>
+    <div layout="row" flex layout-align="center none">
+        <div class="div-main-form-page" flex="70">
 
-    <div layout="row" class="divSearchList">
-        <input class="form-control inputSearchTable" type="text" ng-model="searchCriteria"
-               placeholder="Que filme você está buscando ?"/>
-        <md-icon class="material-icons md-dark iconMagnifyingGlass">search</md-icon>
+            <md-input-container class="md-block">
+                <label class="label-title-pages">Lista de filmes</label>
+            </md-input-container>
+
+            <div layout="row" class="div-search-list">
+                <input class="form-control input-search-table" type="text" ng-model="searchCriteria"
+                       placeholder="Que filme você está buscando ?"/>
+                <md-icon class="material-icons md-dark icon-magnifying-glass">search</md-icon>
+            </div>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th><a href="" ng-click="orderByFunction('_id')">Id</a></th>
+                    <th><a href="" ng-click="orderByFunction('title')">Título</a></th>
+                    <th><a href="" ng-click="orderByFunction('release_date')">Ano de lançamento</a></th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="movie in movies | filter: searchCriteria | orderBy: orderCriteria: orderDirection">
+                    <td></td>
+                    <td style="vertical-align: middle">{{movie._id}}</td>
+                    <td style="vertical-align: middle">{{movie.title}}</td>
+                    <td style="vertical-align: middle">{{movie.release_date | limitTo:4}}</td>
+                    <td style="vertical-align: middle">
+                        <md-button class="md-fab md-mini">
+                            <md-icon class="material-icons md-dark" ng-click="editMovie(movie)">create</md-icon>
+                        </md-button>
+                        <md-button class="md-fab md-mini" ng-click="deleteMovie(movie)">
+                            <md-icon class="material-icons md-dark">delete</md-icon>
+                        </md-button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
     </div>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th></th>
-            <th><a href="" ng-click="orderByFunction('_id')">Id</a></th>
-            <th><a href="" ng-click="orderByFunction('title')">Título</a></th>
-            <th><a href="" ng-click="orderByFunction('release_date')">Ano de lançamento</a></th>
-            <th></th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr ng-repeat="movie in movies | filter: searchCriteria | orderBy: orderCriteria: orderDirection">
-            <td></td>
-            <td style="vertical-align: middle">{{movie._id}}</td>
-            <td style="vertical-align: middle">{{movie.title}}</td>
-            <td style="vertical-align: middle">{{movie.release_date | limitTo:4}}</td>
-            <td style="vertical-align: middle">
-                <md-button class="md-fab md-mini">
-                    <md-icon class="material-icons md-dark" ng-click="editMovie(movie)">create</md-icon>
-                </md-button>
-                <md-button class="md-fab md-mini" ng-click="deleteMovie(movie)">
-                    <md-icon class="material-icons md-dark">delete</md-icon>
-                </md-button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
 
 </div>

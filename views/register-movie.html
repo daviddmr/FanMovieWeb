@@ -1,4 +1,4 @@
-<div layout="column" ng-cloak class="divMainFormPage">
+<div layout="column">
 
     <md-toolbar class="md-hue-2">
         <div class="md-toolbar-tools" style="padding-left: 20px; padding-right: 20px">
@@ -15,82 +15,92 @@
         </div>
     </md-toolbar>
 
-    <md-input-container class="md-block">
-        <label class="labelTitlePages">{{title}}</label>
-    </md-input-container>
+    <div layout="row" flex layout-align="center none">
 
-    <form name="movieForm" layout="column">
+        <div class="div-main-form-page" flex="70">
 
-        <md-input-container class="md-block inputFirstNameForm">
-            <label>Título do filme</label>
-            <input ng-model="movie.title" required name="titleInput">
-            <div ng-messages="movieForm.titleInput.$error">
-                <div ng-message="required">É obrigatório informar um título.</div>
-            </div>
-        </md-input-container>
+            <md-input-container class="md-block">
+                <label class="label-title-pages">{{title}}</label>
+            </md-input-container>
 
-        <md-input-container class="md-block inputFirstNameForm">
-            <label>Título original do filme</label>
-            <input ng-model="movie.original_title">
-        </md-input-container>
+            <form name="movieForm" layout="column">
 
-        <md-input-container class="md-block inputFirstNameForm">
-            <label>URL da imagem do poster</label>
-            <input ng-model="movie.poster_path">
-        </md-input-container>
+                <md-input-container class="md-block input-first-name-form">
+                    <label>Título do filme</label>
+                    <input ng-model="movie.title" required name="titleInput">
+                    <div ng-messages="movieForm.titleInput.$error">
+                        <div ng-message="required">É obrigatório informar um título.</div>
+                    </div>
+                </md-input-container>
 
-        <md-input-container class="md-block inputFirstNameForm">
-            <label>URL de uma cena do filme</label>
-            <input ng-model="movie.backdrop_path">
-        </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Título original do filme</label>
+                    <input ng-model="movie.original_title">
+                </md-input-container>
 
-        <md-chips ng-model="genre_ids" md-autocomplete-snap
-                  md-transform-chip="transformChip($chip)"
-                  md-require-match="true">
-            <md-autocomplete
-                    md-selected-item="selectedItem"
-                    md-search-text="searchText"
-                    md-items="item in querySearch(searchText)"
-                    md-item-text="item.name"
-                    placeholder="Procure por um gênero">
-                <span md-highlight-text="searchText">{{item.genreName}}</span>
-            </md-autocomplete>
-            <md-chip-template>
+                <md-input-container class="md-block">
+                    <label>URL da imagem do poster</label>
+                    <input ng-model="movie.poster_path">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>URL de uma cena do filme</label>
+                    <input ng-model="movie.backdrop_path">
+                </md-input-container>
+
+                <md-chips ng-model="genre_ids" md-autocomplete-snap
+                          md-transform-chip="transformChip($chip)"
+                          md-require-match="true">
+                    <md-autocomplete
+                            md-selected-item="selectedItem"
+                            md-search-text="searchText"
+                            md-items="item in querySearch(searchText)"
+                            md-item-text="item.name"
+                            placeholder="Procure por um gênero">
+                        <span md-highlight-text="searchText">{{item.genreName}}</span>
+                    </md-autocomplete>
+                    <md-chip-template>
                 <span>
                   <strong>{{$chip.genreName}}</strong>
                 </span>
-            </md-chip-template>
-        </md-chips>
+                    </md-chip-template>
+                </md-chips>
 
-        <md-input-container class="md-block">
-            <label>Sinopse</label>
-            <textarea ng-model="movie.overview" rows="3" md-select-on-focus></textarea>
-        </md-input-container>
+                <div layout="row">
 
-        <div layout="row">
+                    <md-input-container class="md-block" flex-gt-sm flex="30">
+                        <label>Ano de lançamento</label>
+                        <md-select ng-model="movie.release_date">
+                            <md-option ng-repeat="year in years" value="{{year}}">
+                                {{year}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
 
-            <md-input-container class="md-block" flex-gt-sm flex="30">
-                <label>Ano de lançamento</label>
-                <md-select ng-model="movie.release_date">
-                    <md-option ng-repeat="year in years" value="{{year}}">
-                        {{year}}
-                    </md-option>
-                </md-select>
-            </md-input-container>
+                    <md-slider-container flex="60">
+                        <span>Nota: {{movie.vote_average}}</span>
+                        <md-slider flex min="0" max="10" step="0.1" ng-model="movie.vote_average" aria-label="red"
+                                   id="red-slider">
+                        </md-slider>
+                    </md-slider-container>
 
-            <md-slider-container flex="60">
-                <span>Nota: {{movie.vote_average}}</span>
-                <md-slider flex min="0" max="10" step="0.1" ng-model="movie.vote_average" aria-label="red" id="red-slider">
-                </md-slider>
-            </md-slider-container>
+                </div>
+
+                <md-input-container class="md-block">
+                    <label>Sinopse</label>
+                    <textarea ng-model="movie.overview" rows="3" md-select-on-focus></textarea>
+                </md-input-container>
+
+            </form>
+
+            <div layout="row" layout-align="end center" class="div-foot-page-form-page">
+                <!--<md-button ng-disabled="false" ng-click="clearForm(movieForm) ">{{titleOfClearButton}}</md-button>-->
+                <md-button class="md-raised md-primary" ng-click="addMovie(movie)">Salvar</md-button>
+            </div>
 
         </div>
 
-    </form>
-
-    <div layout="row" layout-align="end center" class="divFootPageFormPage">
-        <!--<md-button ng-disabled="false" ng-click="clearForm(movieForm) ">{{titleOfClearButton}}</md-button>-->
-        <md-button class="md-raised md-primary" ng-click="addMovie(movie)">Salvar</md-button>
     </div>
+
 
 </div>

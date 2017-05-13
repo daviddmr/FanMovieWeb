@@ -1,64 +1,26 @@
-.jumbotron {
-    width: 1150px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.divMainListPage {
-    width: 800px;
-    margin-top: 30px;
-    /*margin-left: 85px;*/
-
-    position: absolute;
-    left: 20%;
-}
-
-.labelTitlePages {
+.label-title-pages {
     font-size: 24px;
     color: darkslategrey
 }
 
-.divTitleListPage {
-    font-size: 24px;
-    color: darkslategrey;
-}
-
-.divSearchList {
+.div-search-list {
     margin-top: 35px;
 }
 
-.inputSearchTable {
+.input-search-table {
     margin-top: 5px;
     margin-left: 5px;
     margin-right: 10px;
     vertical-align: middle;
 }
 
-.iconMagnifyingGlass {
+.icon-magnifying-glass {
     margin-right: 20px;
     vertical-align: middle;
 }
 
-.inputContainerLastName {
-    margin-top: 37px;
-}
-
-.divDeleteUsers {
-    margin-top: 10px;
-}
-
 .table tr {
     text-align: center;
-}
-
-.checkBoxForDelete {
-    margin-top: 15px;
-    margin-left: 10px;
-}
-
-.tableTdRowItemsListPage {
-    vertical-align: middle;
 }
 
 .table th {
@@ -78,59 +40,92 @@
     text-align: center;
 }
 
-.selected {
-    background-color: #CFD8DC;
-}
-
 .bold {
     font-weight: bold;
 }
 
-.divMainFormPage {
+.div-main-form-page {
     width: 800px;
     margin-top: 15px;
-    margin-left: 85px;
 }
 
-.inputFirstNameForm {
+.input-first-name-form {
     margin-top: 45px;
 }
 
-.inputBirthdayForm {
-    margin-top: 12px;
-}
-
-.inputAddressComplementForm {
-    margin-left: 15px;
-}
-
-.inputDistrictForm {
-    margin-top: 20px;
-}
-
-.inputTelephoneForm {
-    margin-left: 15px;
-}
-
-.inputPlaceHolderForm {
-    margin-bottom: 0;
-    color: #BDBDBD;
-}
-
-.inputPlaceHolderFormBirthday {
-    margin-bottom: 0;
-    margin-left: 15px;
-    color: #BDBDBD;
-}
-
-.inputContainersForm {
-    margin-top: 0;
-}
-
-.divInputCpf {
-    margin-left: 15px;
-}
-
-.divFootPageFormPage {
+.div-foot-page-form-page {
     margin-bottom: 30px;
+}
+
+/*login/signup screen*/
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.account-wall {
+    margin-top: 20px;
+    padding: 40px 0px 20px 0px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.login-title {
+    color: #555;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+
+.profile-img {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.new-account {
+    display: block;
+    margin-top: 10px;
 }
