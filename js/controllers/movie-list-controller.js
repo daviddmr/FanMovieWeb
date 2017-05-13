@@ -29,7 +29,7 @@ angular.module("fanMovieWeb")
             $scope.message = 'Aconteceu um problema: ' + status;
         }
 
-        $scope.deleteMovie = function (movie) {
+        var deleteMovie = function (movie) {
             movieListService.removeMovie(movie).then(onSuccessRemoveMovie, onFailureRemoveMovie);
         };
 
@@ -45,13 +45,22 @@ angular.module("fanMovieWeb")
         var showAlert = function (msg) {
             $mdDialog.show(
                 $mdDialog.alert()
-                    .parent(angular.element(document.querySelector('#popupContainer')))
                     .clickOutsideToClose(true)
                     .textContent(msg)
-                    .ariaLabel('Alert Dialog Demo')
                     .ok('Ok!')
-                // .targetEvent(ev)
             );
+        };
+
+        $scope.showRemoveMovieConfirm = function(movie) {
+            var confirm = $mdDialog.confirm()
+                .title('Você realmente deseja remover este filme?')
+                .clickOutsideToClose(true)
+                .ok('Sim')
+                .cancel('Não');
+
+            $mdDialog.show(confirm).then(function() {
+                deleteMovie(movie)
+            });
         };
 
         $scope.addMovie = function () {
