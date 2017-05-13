@@ -96,14 +96,15 @@ angular.module("fanMovieWeb")
         };
 
         function onSuccess(data) {
-            console.log();
+            movie ? showAlert('Filme \"' + data.data.title + '\" editado com sucesso') : showAlert('Filme \"' + data.data.title + '\" salvo com sucesso');
+            hideDialog();
         }
 
         function onFailure(data, status) {
             console.log();
         }
 
-        $scope.hide = function() {
+        var hideDialog = function() {
             $mdDialog.hide();
         };
 
@@ -117,6 +118,18 @@ angular.module("fanMovieWeb")
                 $scope.genre_ids = [];
                 form.$setUntouched();
             }
+        };
+
+        var showAlert = function (msg) {
+            $mdDialog.show(
+                $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('#popupContainer')))
+                    .clickOutsideToClose(true)
+                    .textContent(msg)
+                    .ariaLabel('Alert Dialog Demo')
+                    .ok('Ok!')
+                // .targetEvent(ev)
+            );
         };
 
     });
