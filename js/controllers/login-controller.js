@@ -1,5 +1,5 @@
 angular.module("fanMovieWeb")
-    .controller('LoginController', function ($scope, $rootScope, $state, loginService, $window) {
+    .controller('LoginController', function ($scope, $rootScope, $state, $mdDialog, loginService, $window) {
 
         $scope.title = "Login";
         $scope.error = false;
@@ -19,16 +19,23 @@ angular.module("fanMovieWeb")
         };
 
         function onSuccess(data) {
-            $scope.error = false;
-            $rootScope.authenticated = true;
             $state.go("movie-list");
-            console.log("Success")
         }
 
         function onFailure(data, status) {
-            $scope.error = true;
-            $rootScope.authenticated = false;
-            $scope.message = 'Aconteceu um problema: ' + status;
+            if(!data.data)
+                showAlert("Erro no servidor", "Servidor não encontrado");
+            if (data.status == 401)
+                showAlert("", "Usuário ou senha inválido");
         }
 
+        var showAlert = function (title, msg) {
+            $mdDialog.show(
+                $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title(title)
+                    .textContent(msg)
+                    .ok('Ok')
+            );
+        };
     });

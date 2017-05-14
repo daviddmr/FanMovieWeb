@@ -23,6 +23,8 @@ angular.module("fanMovieWeb")
         }
 
         function onFailure(data, status) {
+            if(!data.data)
+                showAlert("Erro no servidor", "Servidor não encontrado");
             if(data.status == 500)
                 showAlert("Usuário cadastrado", "Este usuário já está cadastrado")
         }
