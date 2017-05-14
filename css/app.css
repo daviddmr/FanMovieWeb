@@ -41,34 +41,13 @@
     text-align: center;
 }
 
-.tr {
-    text-align: center;
-}
-
-.th {
-    text-align: center;
-    color: #00c853;
-}
-
-.td {
-    text-align: center;
-}
-
-.bold {
-    font-weight: bold;
-}
-
 .div-main-form-page {
     width: 800px;
     margin-top: 15px;
 }
 
-.input-first-name-form {
+.input-movie-title-form {
     margin-top: 45px;
-}
-
-.div-foot-page-form-page {
-    margin-bottom: 30px;
 }
 
 /*login/signup screen*/
