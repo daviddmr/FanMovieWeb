@@ -27,7 +27,7 @@ angular.module("fanMovieWeb", ['ngMaterial', 'ngAnimate', 'ui.router', 'tiny-lea
 
         $urlRouterProvider.otherwise("/login");
 
-        $httpProvider.interceptors.push('AuthInterceptor');
+        // $httpProvider.interceptors.push('AuthInterceptor');
 
         $mdThemingProvider.theme('default')
             .primaryPalette('green')
