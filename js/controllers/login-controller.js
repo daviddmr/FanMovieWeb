@@ -19,7 +19,11 @@ angular.module("fanMovieWeb")
         };
 
         function onSuccess(data) {
-            $state.go("movie-list");
+            if(data.data.administrator) {
+                $state.go("movie-list");
+            } else {
+                showAlert("Você não é um administrador", "Crie uma conta como administrador para ter acesso ao painel de configurações");
+            }
         }
 
         function onFailure(data, status) {

@@ -2,19 +2,15 @@ angular.module("fanMovieWeb")
     .controller('RegisterController', function ($scope, $state, $mdDialog, registerService) {
 
         $scope.title = "Cadastro";
-        $scope.error = false;
         $scope.user = {};
-
-        var user = {};
-        user = $scope.user;
 
         $scope.login = function login() {
             $state.go("login");
         };
 
         $scope.register = function register() {
-            console.log(user);
-            registerService.save(user).then(onSuccess, onFailure);
+            $scope.user.administrator = true;
+            registerService.save($scope.user).then(onSuccess, onFailure);
         };
 
         function onSuccess(data) {
