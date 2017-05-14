@@ -2,7 +2,7 @@
  * Created by david on 09/05/2017.
  */
 angular.module("fanMovieWeb")
-    .controller('RegisterMovieController', function ($scope, $state, $stateParams, $filter, $mdDialog, registerMovieService, movieListService, movie) {
+    .controller('RegisterMovieController', function ($scope, $state, $filter, $mdDialog, registerMovieService, movieListService, movie) {
 
         $scope.genre_ids = [];
 
@@ -49,8 +49,6 @@ angular.module("fanMovieWeb")
         function getGenreById(id) {
             return $filter('filter')(genres, {id: id}, true);
         }
-
-        // $stateParams.movie.id ? fillMovieFields($stateParams.movie) : $scope.movie = {};
 
         movie ? (movie.id ? fillMovieFields(movie) : clearMovieFields()) : clearMovieFields();
 
@@ -101,7 +99,10 @@ angular.module("fanMovieWeb")
         }
 
         function onFailure(data, status) {
-            console.log();
+            if (data.status == 401) {
+                showAlert("Sua sessão expirou");
+                $state.go("login");
+            }
         }
 
         var hideDialog = function() {
