@@ -1,5 +1,5 @@
 angular.module("fanMovieWeb")
-    .controller('RegisterController', function ($scope, $state, registerService) {
+    .controller('RegisterController', function ($scope, $state, $mdDialog, registerService) {
 
         $scope.title = "Cadastro";
         $scope.error = false;
@@ -18,12 +18,22 @@ angular.module("fanMovieWeb")
         };
 
         function onSuccess(data) {
-            $scope.error = false;
+            showAlert("Usuário cadastrado", "Usuário cadastrado com sucesso")
             $state.go("login");
         }
 
         function onFailure(data, status) {
-            $scope.error = true;
-            $scope.message = 'Aconteceu um problema: ' + data;
+            if(data.status == 500)
+                showAlert("Usuário cadastrado", "Este usuário já está cadastrado")
         }
+
+        var showAlert = function(title, msg) {
+            $mdDialog.show(
+                $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title(title)
+                    .textContent(msg)
+                    .ok('Ok')
+            );
+        };
     });
