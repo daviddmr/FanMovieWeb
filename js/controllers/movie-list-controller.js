@@ -26,8 +26,14 @@ angular.module("fanMovieWeb")
         }
 
         function onFailure(data, status) {
-            if(data.status == 401)
-                $state.go("login");
+            if (data.status == 401) {
+                sessionExpired();
+            }
+        }
+
+        function sessionExpired() {
+            showAlert("Sua sessão expirou");
+            $state.go("login");
         }
 
         var deleteMovie = function (movie) {
@@ -40,7 +46,8 @@ angular.module("fanMovieWeb")
         }
 
         function onFailureRemoveMovie(data, status) {
-            $scope.message = 'Aconteceu um problema: ' + status;
+            if(data.status == 401)
+                sessionExpired();
         }
 
         var showAlert = function (msg) {
@@ -52,14 +59,14 @@ angular.module("fanMovieWeb")
             );
         };
 
-        $scope.showRemoveMovieConfirm = function(movie) {
+        $scope.showRemoveMovieConfirm = function (movie) {
             var confirm = $mdDialog.confirm()
                 .title('Você realmente deseja remover este filme ?')
                 .clickOutsideToClose(true)
                 .ok('Sim')
                 .cancel('Não');
 
-            $mdDialog.show(confirm).then(function() {
+            $mdDialog.show(confirm).then(function () {
                 deleteMovie(movie)
             });
         };
