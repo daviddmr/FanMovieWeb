@@ -3,6 +3,19 @@
     color: darkslategrey
 }
 
+.main-content {
+    background-color: #718792;
+}
+
+.column-names {
+    color: #ffffff;
+}
+
+.column-items {
+    vertical-align: middle;
+    color: #ffffff;
+}
+
 .div-search-list {
     margin-top: 35px;
 }
@@ -17,6 +30,7 @@
 .icon-magnifying-glass {
     margin-right: 20px;
     vertical-align: middle;
+    color: #ffffff;
 }
 
 .table tr {

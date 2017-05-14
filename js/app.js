@@ -30,7 +30,7 @@ angular.module("fanMovieWeb", ['ngMaterial', 'ngAnimate', 'ui.router', 'tiny-lea
         // $httpProvider.interceptors.push('AuthInterceptor');
 
         $mdThemingProvider.theme('default')
-            .primaryPalette('green')
-            .accentPalette('grey');
+            .primaryPalette('grey')
+            .accentPalette('yellow');
 
     });

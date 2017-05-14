@@ -1,4 +1,4 @@
-<div layout="column" ng-init="orderByFunctionInit('_id')">
+<div layout="column" ng-init="orderByFunctionInit('_id')" class="main-content">
 
     <md-toolbar class="md-hue-2">
         <div class="md-toolbar-tools" style="padding-left: 20px; padding-right: 20px">
@@ -32,9 +32,9 @@
                 <thead>
                 <tr>
                     <th></th>
-                    <th><a href="" ng-click="orderByFunction('_id')">Id</a></th>
-                    <th><a href="" ng-click="orderByFunction('title')">Título</a></th>
-                    <th><a href="" ng-click="orderByFunction('release_date')">Ano de lançamento</a></th>
+                    <th><a href="" ng-click="orderByFunction('_id')" class="column-names"><u>Id</u></a></th>
+                    <th><a href="" ng-click="orderByFunction('title')" class="column-names"><u>Título</u></a></th>
+                    <th><a href="" ng-click="orderByFunction('release_date')" class="column-names"><u>Ano de lançamento</u></a></th>
                     <th></th>
                 </tr>
                 </thead>
@@ -42,10 +42,10 @@
                 <tbody>
                 <tr ng-repeat="movie in movies | filter: searchCriteria | orderBy: orderCriteria: orderDirection">
                     <td></td>
-                    <td style="vertical-align: middle">{{movie._id}}</td>
-                    <td style="vertical-align: middle">{{movie.title}}</td>
-                    <td style="vertical-align: middle">{{movie.release_date | limitTo:4}}</td>
-                    <td style="vertical-align: middle">
+                    <td class="column-items" style="vertical-align: middle">{{movie._id}}</td>
+                    <td class="column-items" style="vertical-align: middle">{{movie.title}}</td>
+                    <td class="column-items" style="vertical-align: middle">{{movie.release_date | limitTo:4}}</td>
+                    <td class="column-items" style="vertical-align: middle">
                         <md-button class="md-fab md-mini" ng-click="openCreateEditMovieDialog(movie)">
                             <md-icon class="material-icons md-dark"">create</md-icon>
                         </md-button>
