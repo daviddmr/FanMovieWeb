@@ -68,12 +68,14 @@
                         </md-select>
                     </md-input-container>
 
-                    <md-slider-container flex="60">
-                        <span>Nota: {{movie.vote_average}}</span>
-                        <md-slider flex min="0" max="10" step="0.1" ng-model="movie.vote_average" aria-label="red"
-                                   id="red-slider">
-                        </md-slider>
-                    </md-slider-container>
+                    <div layout="column" flex="">
+                        <label>Nota: {{movie.vote_average}}</label>
+                        <md-slider-container flex="60">
+                            <md-slider flex min="0" max="10" step="0.1" ng-model="movie.vote_average" aria-label="red"
+                                       id="red-slider">
+                            </md-slider>
+                        </md-slider-container>
+                    </div>
 
                 </div>
 
