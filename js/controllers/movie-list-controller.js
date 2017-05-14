@@ -26,7 +26,8 @@ angular.module("fanMovieWeb")
         }
 
         function onFailure(data, status) {
-            $scope.message = 'Aconteceu um problema: ' + status;
+            if(data.status == 401)
+                $state.go("login");
         }
 
         var deleteMovie = function (movie) {

@@ -5,7 +5,8 @@ angular.module('fanMovieWeb')
 
         function getHeader() {
             var user = JSON.parse($window.localStorage.getItem("login"));
-            var encodedString = btoa(user.username + ":" + user.password);
+            if(user)
+                var encodedString = btoa(user.username + ":" + user.password);
             return {'Authorization': 'Basic ' + encodedString};
         }
 
