@@ -85,7 +85,10 @@ angular.module("fanMovieWeb")
                 locals: {
                     movie: movie
                 },
-                clickOutsideToClose: true
+                clickOutsideToClose: true,
+                onRemoving: function () {
+                    getMovies();
+                }
             })
         };
 
