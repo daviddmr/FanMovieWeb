@@ -16,12 +16,12 @@
 Dedicada para realizar o login na aplicação.
 Só administradores podem realizar login na página administrativa
 
-![](https://lh6.googleusercontent.com/xmBlYOQaxdIVu8F6c_ceQwBEaweUM8us1sXtYvwpz2g8XpNVQjj6M2-gX9si_6GcXWKT9p51oU6iBGk=w1366-h638)
+![](https://s28.postimg.org/inh0pajfx/Login_fanmovie.png)
 
 ### Signup
 * Dedicada para realizar o cadastro do administrador
 
-![](https://lh6.googleusercontent.com/UttewGtfuVyhRwFJHh8KZL2FaH3wfYVxznEq98xlQhHPbdqBC7gvZgGagPHqm0dUmwjpoaiB_l7XvoY=w1366-h638)
+![](https://s28.postimg.org/tbkro4tf1/Signup_fanmovie.png)
 
 ### Filmes/Home
 * Exibe uma lista de todos os filmes cadastrados
@@ -31,9 +31,9 @@ Só administradores podem realizar login na página administrativa
 * É possível criar um novo filme selecionando o botão respectivo no canto superior direito da barra de tarefas
 * Há um botão de logout também no canto superior direito
 
-![](https://lh6.googleusercontent.com/DbvO5ZwZsbhHC6cYm8caq8ZNOnHCbRB3pSLt-jnoJ-MmVpJuX0N_C2h_D4cSrZ2Lz0LdG0dlVVIj0YA=w1366-h638-rw)
+![](https://s28.postimg.org/6x337wqnh/Filmes_fanmovie.png)
 
 ### Tela de cadastro/edição de filmes
 * Nesta tela o usuário pode editar ou cadastrar um novo filme preenchendo ou editando os campos
 
-![](https://lh5.googleusercontent.com/Cvs3tx_iwuqr_ZM_LSjLqQ_zSQAB2_Jh8po4Qp11L9hupxmgCOpj-vVLQA2ABbl2GKDruQIblOdE1VA=w1366-h638-rw)
+![](https://s28.postimg.org/yj5usla0d/Editar_fanmovie.png)
